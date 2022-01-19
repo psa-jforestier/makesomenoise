@@ -13,8 +13,9 @@ Sounds played :
 - Bad Joke : the drums sounds for a not-so-good joke
 - Tada : the (in)famous windows tada sound
 
-The wav sound files are stored in [app/src/main/res/raw](app/src/main/res/raw]) .
+The wav sound files are stored in [app/src/main/res/raw](app/src/main/res/raw/) .
 
 TODO
 - Play the Whip sound when the phone is whiped (dedicated to The Big Bang Theory)
 - Allow sound configuration depending on the phone move
+- Improve UI : buttons should take the whole place horizontaly 
