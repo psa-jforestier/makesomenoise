@@ -19,3 +19,6 @@ TODO
 - Play the Whip sound when the phone is whiped (dedicated to The Big Bang Theory)
 - Allow sound configuration depending on the phone move
 - Improve UI : buttons should take the whole place horizontaly
+
+
+Icon from https://www.flaticon.com/premium-icon/megaphone_2275981
