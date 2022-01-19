@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.laugh);
         final MediaPlayer mp4 = MediaPlayer.create(this, R.raw.badjoke);
         final MediaPlayer mp5 = MediaPlayer.create(this, R.raw.tada);
+
         mpLastSound = mp1;
         ((Button)findViewById(R.id.bWhip)).setOnClickListener(new View.OnClickListener() {
             @Override

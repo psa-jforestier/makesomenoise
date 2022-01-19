@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MakeSomeNoise</string>
+    <string name="app_name">Make Some Noise</string>
+    <string name="click_on_a_button_to_make_some_noise">Click on a button to make some noise !</string>
+    <string name="whip">Whip</string>
+    <string name="drama">Drama</string>
+    <string name="laugh">Laugh</string>
+    <string name="bad_joke">Bad Joke</string>
+    <string name="tada">Tada</string>
+    <string name="replay_the_last_played_sound">Replay the last played sound</string>
 </resources>
