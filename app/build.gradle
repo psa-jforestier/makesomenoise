@@ -4,6 +4,7 @@ plugins {
 
 android {
 
+
     compileSdk 32
 
     defaultConfig {
@@ -22,7 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             renderscriptDebuggable true
             debuggable true
-            signingConfig signingConfigs.release
+
         }
     }
     compileOptions {
