@@ -2,7 +2,12 @@ package org.jfo.app.makesomenoise;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,6 +20,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -100,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         ((ImageButton)findViewById(R.id.bLastSound)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            mpLastSound.start();
+                mpLastSound.start();
             }
         });
 
@@ -111,7 +117,31 @@ public class MainActivity extends AppCompatActivity {
                 mpLastSound.start();
             }
         });
+        ((TextView)findViewById(R.id.lIntro)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String versionName = "???";
+                try {
+                    PackageInfo packageinfo = MainActivity.this.getPackageManager()
+                            .getPackageInfo(MainActivity.this.getPackageName(), 0);
+                    versionName = packageinfo.versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
 
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
+                alertDialog.setTitle("About");
+                alertDialog.setMessage(versionName);
+
+                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // here you can add functions
+                    }
+                });
+
+                alertDialog.show();  //<-- See This!
+            }
+        });
 
 
 
