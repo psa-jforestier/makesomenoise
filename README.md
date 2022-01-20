@@ -12,7 +12,7 @@ Sounds played :
 - Suspens : a famous sunspens sound 
 - Laugh : a crowd laugh when someone did a good joke
 - Bad Joke : the drums sounds for a not-so-good joke
-- Tada : the (in)famous windows tada sound
+
 
 The last played sound can be replayed by pushing the icon at the bottom of the screen, or by whipping the phone.
 
