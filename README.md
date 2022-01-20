@@ -15,6 +15,8 @@ Sounds played :
 
 The wav sound files are stored in [app/src/main/res/raw](./app/src/main/res/raw) .
 
+APK is available in [app/release/](app/release/)
+
 TODO
 - Play the Whip sound when the phone is whiped (dedicated to The Big Bang Theory)
 - Allow sound configuration depending on the phone move
