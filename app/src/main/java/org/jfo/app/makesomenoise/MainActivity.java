@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private WhipDetector whipDetector;
@@ -26,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        bt = (Button)findViewById(R.id.bTada);
-        // Ordered by buttons on the UI
+
+        // Ordered by buttons location on the UI
         final MediaPlayer mp1 = MediaPlayer.create(this, R.raw.whip);
         final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.drama);
         final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.laugh);
@@ -44,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
          **/
+
+        // TODO : better code to handle touch down.
+        // Click is not sufficient, because I want the sound to be trigger on touch down, not on touch up.
         ((Button)findViewById(R.id.bWhip)).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -102,11 +107,8 @@ public class MainActivity extends AppCompatActivity {
         whipDetector = new WhipDetector(this, new WhipDetector.Callback() {
             @Override
             public void whipNao() {
-                /**
-                 *
-                 * whipSoundPlayer.gogogo(viewPager.getCurrentItem());
-                 */
-                Log.d("###", "!!NAO!!");
+                Log.d("###", "Whip me dirty smartphone");
+                mpLastSound.start();
             }
         });
 
@@ -130,6 +132,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Thank you https://codeberg.org/uniqx/AWhip/src/branch/main/app/src/main/java/org/getdisconnected/awhip/HomeActivity.java#L59
+     */
     static class WhipDetector implements SensorEventListener {
 
         //private final Context context;
@@ -140,13 +145,22 @@ public class MainActivity extends AppCompatActivity {
         public WhipDetector (Context context, final Callback callback) {
             //this.context = context;
             this.callback = callback;
+
             this.sensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
+            List<Sensor> deviceSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
+            for (int i=0;i<deviceSensors.size();i++) {
+                Log.d("###", "" + deviceSensors.get(i));
+            }
+            //
+            //this.sensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
             this.oldvalues = new int[3];
         }
 
         public void on() {
+
             //sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE), SensorManager.SENSOR_DELAY_GAME);
-            sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION), SensorManager.SENSOR_DELAY_NORMAL);
+            //sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION), SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
         }
 
         public void off(){
@@ -165,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
         public void onSensorChanged(SensorEvent event) {
 
             // round values
+            //Log.d("###", String.format("sensor value X=%+03.3f Y=%+03.3f Z=%+03.3f", event.values[0], event.values[1], event.values[2]));
+
             int x,y,z;
             x = (int) event.values[0];
             y = (int) event.values[1];
@@ -172,21 +188,29 @@ public class MainActivity extends AppCompatActivity {
             if (oldvalues[0] != x || oldvalues[1] != y || oldvalues[2] != z) {
 
                 // One axis has changed
-                Log.d("###", String.format("Move X=%+3d Y=%+3d Z=%+3d", x,y,z));
+                //Log.d("###", String.format("Move X=%+3d Y=%+3d Z=%+3d", x,y,z));
                 oldvalues[0] = x;
                 oldvalues[1] = y;
                 oldvalues[2] = z;
+
+                if (x > 30)
+                {
+                    Log.d("###", "WHIP detected !! " + String.format("Move X=%+3d Y=%+3d Z=%+3d", x,y,z));
+                    callback.whipNao();
+                }
             }
+
+
             //Log.d("###", String.format("sensor value X=%+03.3f Y=%+03.3f Z=%+03.3f", event.values[0], event.values[1], event.values[2]));
             //callback.whipNao();
-
+/**
             if (event.values[2] > 4.5f) {
                 if ( this.between(event.values[0], -1f, 1f) &&
                         this.between(event.values[1], -1f, 1f)) {
                     callback.whipNao();
                 }
             }
-
+**/
         }
 
         @Override
