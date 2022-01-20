@@ -44,44 +44,44 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bWhip"
+                android:id="@+id/b1"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/whip"
-                android:textAllCaps="false"/>
+                android:text="@string/b1"
+                android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/bDrama"
+                android:id="@+id/b2"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/drama"
-                android:textAllCaps="false"/>
+                android:text="@string/b2"
+                android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/bLaugh"
+                android:id="@+id/b3"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/laugh"
-                android:textAllCaps="false"/>
+                android:text="@string/b3"
+                android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/bBadJoke"
+                android:id="@+id/b4"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/bad_joke"
-                android:textAllCaps="false"/>
+                android:text="@string/b4"
+                android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/bTada"
+                android:id="@+id/b5"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/tada"
-                android:textAllCaps="false"/>
+                android:text="@string/b5"
+                android:textAllCaps="false" />
 
         </LinearLayout>
 

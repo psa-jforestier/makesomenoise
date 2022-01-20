@@ -3,12 +3,10 @@ package org.jfo.app.makesomenoise;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -37,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Ordered by buttons location on the UI
         final MediaPlayer mp1 = MediaPlayer.create(this, R.raw.whip);
-        final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.drama);
-        final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.laugh);
-        final MediaPlayer mp4 = MediaPlayer.create(this, R.raw.badjoke);
-        final MediaPlayer mp5 = MediaPlayer.create(this, R.raw.tada);
+        final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.dundundun);
+        final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.suspens);
+        final MediaPlayer mp4 = MediaPlayer.create(this, R.raw.laugh);
+        final MediaPlayer mp5 = MediaPlayer.create(this, R.raw.badjoke);
 
         mpLastSound = mp1;
         /**
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO : better code to handle touch down.
         // Click is not sufficient, because I want the sound to be trigger on touch down, not on touch up.
-        ((Button)findViewById(R.id.bWhip)).setOnTouchListener(new View.OnTouchListener() {
+        ((Button)findViewById(R.id.b1)).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch(event.getAction()) {
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        ((Button)findViewById(R.id.bDrama)).setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(R.id.b2)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp2.start();
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ((Button)findViewById(R.id.bLaugh)).setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(R.id.b3)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp3.start();
@@ -87,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ((Button)findViewById(R.id.bBadJoke)).setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(R.id.b4)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp4.start();
@@ -95,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ((Button)findViewById(R.id.bTada)).setOnClickListener(new View.OnClickListener() {
+        ((Button)findViewById(R.id.b5)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp5.start();
