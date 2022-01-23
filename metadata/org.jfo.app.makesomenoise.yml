@@ -8,7 +8,7 @@ SourceCode: https://github.com/psa-jforestier/makesomenoise
 IssueTracker: https://github.com/psa-jforestier/makesomenoise/issues
 
 AutoName: Make Some Noise
-Summary: Push a button, or move your phone, to make some noise.
+Summary: Push a button, or move your phone, to make some noise
 Description:
   Simple fun app to play a sound when you touch a button, or when you whip your phone.
 
@@ -28,7 +28,7 @@ Builds:
     versionCode: 12
     commit: '1.2'
     subdir: app
-    submodules: true
+    #    submodules: true
     gradle:
       - yes
 
