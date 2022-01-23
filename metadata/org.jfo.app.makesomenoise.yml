@@ -7,18 +7,21 @@ WebSite: https://github.com/psa-jforestier/makesomenoise
 SourceCode: https://github.com/psa-jforestier/makesomenoise
 IssueTracker: https://github.com/psa-jforestier/makesomenoise/issues
 
+Name: Make Some Noise
 AutoName: Make Some Noise
 Summary: Push a button, or move your phone, to make some noise
-Description:
-  Simple fun app to play a sound when you touch a button, or when you whip your phone.
+Description: |-
+    Simple fun app to play a sound when you touch a button, or when you
+    whip your phone.
 
-  This app is 1st attempt to create an Android app, but it is quite fun to use. You can virtually
-  whip your find, or make fun of them. You can play the Dun Dun Duuun or Suspens sound when
-  someone is down during a murder party :-) . Did you see some The Big Bang Theory episode when
-  they whip each other or play a murder party ? The sounds are almose the same, and you can
-  use the app like they do it on the show.
+    This app is 1st attempt to create an Android app, but it is quite fun
+    to use. You can virtually whip your find, or make fun of them. You can
+    play the Dun Dun Duuun or Suspens sound when someone is down during a
+    murder party :-) . Did you see some The Big Bang Theory episode when
+    they whip each other or play a murder party ? The sounds are almose the
+    same, and you can use the app like they do it on the show.
 
-  The sounds can''t be changed (it will come in a future version).
+    The sounds can't be changed (it will come in a future version).
 
 RepoType: git
 Repo: https://github.com/psa-jforestier/makesomenoise.git
@@ -28,12 +31,15 @@ Builds:
     versionCode: 12
     commit: '1.2'
     subdir: app
-    #    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.0'
-CurrentVersionCode: 10
+CurrentVersion: '1.2'
+CurrentVersionCode: 12
