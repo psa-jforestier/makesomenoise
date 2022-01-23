@@ -27,7 +27,8 @@ TODO
 Icon from https://www.flaticon.com/premium-icon/megaphone_2275981
 Sensor code inspired by https://f-droid.org/fr/packages/at.h4x.awhip/
 
-Publishing on F-droid :
+Publishing on F-droid : see https://gitlab.com/fdroid/fdroiddata/blob/master/CONTRIBUTING.md
+- My F-Droid fork : https://gitlab.com/psa-jforestier/fdroiddata/
 - change build version in "Open Module Setting (F4) > Modules > Version code and Version name" or open app/build.gradle
   Version code : an integer, should represent the same as Version name (MajorMinor)
   Version name : the number as "Major.Minor"
