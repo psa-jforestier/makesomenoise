@@ -1,0 +1,28 @@
+Categories:
+ - Games
+License: GPL-3.0-or-later
+AuthorName: J.FORESTIER
+AuthorEmail: app@palmeteo.com
+WebSite: https://github.com/psa-jforestier/makesomenoise
+SourceCode: https://github.com/psa-jforestier/makesomenoise
+IssueTracker: https://github.com/psa-jforestier/makesomenoise/issues
+
+AutoName: Make Some Noise
+Summary: Push a button, or move your phone, to make some noise.
+Description:
+Simple fun app to play a sound when you touch a button, or when you whip your phone.
+
+This app is 1st attempt to create an Android app, but it is quite fun to use. You can virtually
+whip your find, or make fun of them. You can play the Dun Dun Duuun or Suspens sound when
+someone is down during a murder party :-) . Did you see some The Big Bang Theory episode when
+they whip each other or play a murder party ? The sounds are almose the same, and you can
+use the app like they do it on the show.
+
+RepoType: git
+Repo: https://github.com/psa-jforestier/makesomenoise.git
+
+Build:0.4,1
+    commit=v0.4
+    subdir=app
+    gradle=yes
+
