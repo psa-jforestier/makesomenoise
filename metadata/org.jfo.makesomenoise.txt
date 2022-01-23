@@ -18,6 +18,9 @@ someone is down during a murder party :-) . Did you see some The Big Bang Theory
 they whip each other or play a murder party ? The sounds are almose the same, and you can
 use the app like they do it on the show.
 
+The sounds cant be changed (it will come in a future version)
+.
+
 RepoType: git
 Repo: https://github.com/psa-jforestier/makesomenoise.git
 
