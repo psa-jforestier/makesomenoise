@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/u402471/AndroidStudioProjects/MakeSomeNoise/app/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.10520833333333333" />
+        <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/drawable/audioicon_background.xml" value="0.10520833333333333" />
+        <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/drawable/ic_launcher_background.xml" value="0.10520833333333333" />
         <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/layout-land/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/mipmap-anydpi-v26/audioicon.xml" value="0.10520833333333333" />
         <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18" />
+        <entry key="..\:/Users/u402471/projets/makesomenoise/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.10520833333333333" />
       </map>
     </option>
   </component>
