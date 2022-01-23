@@ -29,5 +29,8 @@ Sensor code inspired by https://f-droid.org/fr/packages/at.h4x.awhip/
 
 Publishing on F-droid :
 - change build version in "Open Module Setting (F4) > Modules > Version code and Version name" or open app/build.gradle
-  Version code : an integer, should represent the same as Version name
+  Version code : an integer, should represent the same as Version name (MajorMinor)
   Version name : the number as "Major.Minor"
+- In fastlane/metadata/android/en-US/changelogs/ create a file "MajorMinor.txt" (save as version code) and indicate change
+- Commit repo change with a commit named "vMajor.Minor" and push
+- Do a Git Tag named "MajorMinor" (as version code)

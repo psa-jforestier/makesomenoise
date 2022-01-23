@@ -1,0 +1,2 @@
+- 1st publication on F-Droid
+- Add new icon for hi-res devices
