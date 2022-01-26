@@ -3,8 +3,20 @@
 ## My first Android application.
 
 ### First attempt to create a Android application, using Android Studio 3.
+___
+Push a button, or move your phone, to make some noise.
+___
+Simple fun app to play a sound when you touch a button, or when you
+whip your phone.
+This app is 1st attempt to create an Android app, but it is quite fun
+to use. You can virtually whip your find, or make fun of them. You can
+play the Dun Dun Duuun or Suspens sound when someone is down during a
+murder party :-) . Did you see some The Big Bang Theory episode when
+they whip each other or play a murder party ? The sounds are almose the
+same, and you can use the app like they do it on the show.
 
-The goal of this app is to play some fun sounds when a button is pressed, or when the phone is moved.
+The sounds can't be changed (it will come in a future version).
+___
 
 Sounds played :
 - Whip : to make you work harder (like in The Big Bang Theory S5E19)
@@ -24,8 +36,10 @@ APK is available in [app/release/](app/release/)
 TODO
 - Allow sound configuration depending on the phone move
 
+![Make some noise screenshot](/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png?raw=true)
 
-Icon from https://www.flaticon.com/premium-icon/megaphone_2275981
+[Speaker icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/speaker)
+
 Sensor code inspired by https://f-droid.org/fr/packages/at.h4x.awhip/
 Sounds are made by [myself](https://freesound.org/people/JayRom01/), or came from [Simon Lacelle](https://freesound.org/people/Simon_Lacelle/) or from Dick De Benedictis. All of them are open and free to use.
 
