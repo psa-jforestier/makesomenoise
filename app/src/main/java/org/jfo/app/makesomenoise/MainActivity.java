@@ -14,7 +14,7 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -54,10 +54,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        switch(keyCode)   {
+            case KeyEvent.KEYCODE_1 :b1Click((Button)findViewById(R.id.b1));
+                break;
+            case KeyEvent.KEYCODE_2 :b2Click((Button)findViewById(R.id.b2));
+                break;
+            case KeyEvent.KEYCODE_3 :b3Click((Button)findViewById(R.id.b3));
+                break;
+            case KeyEvent.KEYCODE_4 :b4Click((Button)findViewById(R.id.b4));
+                break;
+            case KeyEvent.KEYCODE_5 :b5Click((Button)findViewById(R.id.b5));
+                break;
+            case KeyEvent.KEYCODE_R :bClickLastsound((ImageButton)findViewById(R.id.bLastSound));
+                break;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
     /** Called when the user touches the button */
     public void b1Click(View view) {
         playSound(0, view);
-
     }
 
     public void b2Click(View view) {
