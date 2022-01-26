@@ -15,6 +15,7 @@ Sounds played :
 
 
 The last played sound can be replayed by pushing the icon at the bottom of the screen, or by whipping the phone.
+You can also use the keyboard (Key 1 to 5, and R for repeating the last sound).
 
 The wav sound files are stored in [app/src/main/res/raw](./app/src/main/res/raw) .
 
@@ -26,6 +27,7 @@ TODO
 
 Icon from https://www.flaticon.com/premium-icon/megaphone_2275981
 Sensor code inspired by https://f-droid.org/fr/packages/at.h4x.awhip/
+Sounds are made by [myself](https://freesound.org/people/JayRom01/), or came from [Simon Lacelle](https://freesound.org/people/Simon_Lacelle/) or from Dick De Benedictis. All of them are open and free to use.
 
 Publishing on F-droid : see https://gitlab.com/fdroid/fdroiddata/blob/master/CONTRIBUTING.md
 - My F-Droid fork : https://gitlab.com/psa-jforestier/fdroiddata/

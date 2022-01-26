@@ -1,0 +1,3 @@
+- Make the app work with a physical keyboard
+- Add translations for French
+- Optimize some sound samples with Audacity
