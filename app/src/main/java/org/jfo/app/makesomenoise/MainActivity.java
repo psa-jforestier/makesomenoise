@@ -20,13 +20,61 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private WhipDetector whipDetector;
-    //Button bt;
+
     MediaPlayer mpLastSound;
+    MediaPlayer[] mp;
+
+    public int lastResId;
+    public View lastView;
+    private void playSound(int mpId) {
+
+        if (!mp[mpId].isPlaying())
+        {
+            Log.d("###", "Starting sound number " + mpId);
+            mp[mpId].start();
+        }
+        lastResId = mpId;
+    }
+    private void playSound(int mpId, View view) {
+        playSound(mpId);
+        lastView = view;
+        view.setAlpha(0.5F);
+        mp[mpId].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer paramMP) {
+                view.setAlpha(1F);
+                Log.d("###", "Ending   sound number " + mpId);
+            }
+        });
+    }
+
+    /** Called when the user touches the button */
+    public void b1Click(View view) {
+        playSound(0, view);
+
+    }
+
+    public void b2Click(View view) {
+        playSound(1, view);
+    }
+    public void b3Click(View view) {
+        playSound(2, view);
+    }
+    public void b4Click(View view) {
+        playSound(3, view);
+    }
+    public void b5Click(View view) {
+        playSound(4, view);
+    }
+    public void bClickLastsound(View view) {
+        playSound(lastResId, view);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,20 +87,19 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.suspens);
         final MediaPlayer mp4 = MediaPlayer.create(this, R.raw.laugh);
         final MediaPlayer mp5 = MediaPlayer.create(this, R.raw.badjoke);
-
+        mp = new MediaPlayer[5];
+        mp[0] = mp1;
+        mp[1] = mp2;
+        mp[2] = mp3;
+        mp[3] = mp4;
+        mp[4] = mp5;
         mpLastSound = mp1;
-        /**
-        ((Button)findViewById(R.id.bWhip)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mp1.start();
-                mpLastSound = mp1;
-            }
-        });
-         **/
+        lastResId = 0;//R.raw.whip;
+        lastView = findViewById(R.id.b1);
 
         // TODO : better code to handle touch down.
         // Click is not sufficient, because I want the sound to be trigger on touch down, not on touch up.
+        /**
         ((Button)findViewById(R.id.b1)).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -69,50 +116,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        ((Button)findViewById(R.id.b2)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mp2.start();
-                mpLastSound = mp2;
-            }
-        });
-
-        ((Button)findViewById(R.id.b3)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mp3.start();
-                mpLastSound = mp3;
-            }
-        });
-
-        ((Button)findViewById(R.id.b4)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mp4.start();
-                mpLastSound = mp4;
-            }
-        });
-
-        ((Button)findViewById(R.id.b5)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mp5.start();
-                mpLastSound = mp5;
-            }
-        });
-
-        ((ImageButton)findViewById(R.id.bLastSound)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mpLastSound.start();
-            }
-        });
-
+         **/
         whipDetector = new WhipDetector(this, new WhipDetector.Callback() {
             @Override
             public void whipNao() {
                 Log.d("###", "Whip me dirty smartphone");
-                mpLastSound.start();
+                //mpLastSound.start();
+                playSound(lastResId, lastView);
             }
         });
         ((TextView)findViewById(R.id.lIntro)).setOnClickListener(new View.OnClickListener() {
@@ -128,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
-                alertDialog.setTitle("About");
+                alertDialog.setTitle(getResources().getString(R.string.about));
                 alertDialog.setMessage(versionName);
 
                 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
@@ -140,10 +150,8 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();  //<-- See This!
             }
         });
-
-
-
     }
+
 
     @Override
     protected void onStart() {
@@ -179,15 +187,10 @@ public class MainActivity extends AppCompatActivity {
             for (int i=0;i<deviceSensors.size();i++) {
                 Log.d("###", "" + deviceSensors.get(i));
             }
-            //
-            //this.sensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
             this.oldvalues = new int[3];
         }
 
         public void on() {
-
-            //sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE), SensorManager.SENSOR_DELAY_GAME);
-            //sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION), SensorManager.SENSOR_DELAY_NORMAL);
             sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
         }
 
@@ -199,11 +202,7 @@ public class MainActivity extends AppCompatActivity {
             return x >= min && x <= max;
         }
 
-
-
         @Override
-        // X : monter/descendre ; Y : Z : lateral ;
-
         public void onSensorChanged(SensorEvent event) {
 
             // round values
@@ -228,17 +227,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-
-            //Log.d("###", String.format("sensor value X=%+03.3f Y=%+03.3f Z=%+03.3f", event.values[0], event.values[1], event.values[2]));
-            //callback.whipNao();
-/**
-            if (event.values[2] > 4.5f) {
-                if ( this.between(event.values[0], -1f, 1f) &&
-                        this.between(event.values[1], -1f, 1f)) {
-                    callback.whipNao();
-                }
-            }
-**/
         }
 
         @Override

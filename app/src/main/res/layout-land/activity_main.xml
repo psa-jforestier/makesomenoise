@@ -48,6 +48,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="b1Click"
                 android:text="@string/b1"
                 android:textAllCaps="false" />
 
@@ -56,6 +57,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="b2Click"
                 android:text="@string/b2"
                 android:textAllCaps="false" />
 
@@ -64,6 +66,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="b3Click"
                 android:text="@string/b3"
                 android:textAllCaps="false" />
 
@@ -72,6 +75,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="b4Click"
                 android:text="@string/b4"
                 android:textAllCaps="false" />
 
@@ -80,6 +84,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="b5Click"
                 android:text="@string/b5"
                 android:textAllCaps="false" />
 
@@ -95,6 +100,7 @@
             android:cropToPadding="false"
             android:scaleType="centerInside"
             android:contentDescription="@string/replay_the_last_played_sound"
+            android:onClick="bClickLastsound"
             app:srcCompat="@drawable/appicon_round512" />
 
     </LinearLayout>
