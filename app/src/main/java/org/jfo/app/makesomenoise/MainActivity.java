@@ -1,5 +1,6 @@
 package org.jfo.app.makesomenoise;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -15,6 +16,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -92,7 +96,52 @@ public class MainActivity extends AppCompatActivity {
         playSound(4, view);
     }
     public void bClickLastsound(View view) {
-        playSound(lastResId, view);
+        if (!mp[lastResId].isPlaying())
+            playSound(lastResId, view);
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.activity_main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.mAbout:
+                mHelpClick(null);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void mHelpClick(View view)
+    {
+        String versionName = "???";
+        try {
+            PackageInfo packageinfo = MainActivity.this.getPackageManager()
+                    .getPackageInfo(MainActivity.this.getPackageName(), 0);
+            versionName = packageinfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
+        alertDialog.setTitle(getResources().getString(R.string.about));
+        alertDialog.setMessage(versionName);
+
+        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // here you can add functions
+            }
+        });
+
+        alertDialog.show();  //<-- See This!
     }
 
     @Override
@@ -143,32 +192,13 @@ public class MainActivity extends AppCompatActivity {
                 //mpLastSound.start();
                 playSound(lastResId, lastView);
             }
-        });
+        });/**
         ((TextView)findViewById(R.id.lIntro)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String versionName = "???";
-                try {
-                    PackageInfo packageinfo = MainActivity.this.getPackageManager()
-                            .getPackageInfo(MainActivity.this.getPackageName(), 0);
-                    versionName = packageinfo.versionName;
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                }
 
-                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
-                alertDialog.setTitle(getResources().getString(R.string.about));
-                alertDialog.setMessage(versionName);
-
-                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // here you can add functions
-                    }
-                });
-
-                alertDialog.show();  //<-- See This!
             }
-        });
+        });**/
     }
 
 
