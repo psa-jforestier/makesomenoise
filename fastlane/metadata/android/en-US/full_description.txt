@@ -7,6 +7,10 @@ murder party :-) . Did you see some The Big Bang Theory episode when
 they whip each other or play a murder party ? The sounds are almost the
 same, and you can use the app like they do it on the show.
 
+Help :
+Push a button, and the sound is played. Quite simple :-) !
+The bottom button with the icon repeat the last played sound.
 You can also use the keyboard (Key 1 to 5, and R for repeating the last sound).
+The last sound is also played when you do a whip move with your phone.
 
 The sounds can't be changed (it will come in a future version).

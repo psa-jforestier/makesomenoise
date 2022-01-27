@@ -9,4 +9,8 @@
     <string name="b5">Bad Blague</string>
     <string name="replay_the_last_played_sound">Rejouer le dernier son</string>
     <string name="about">A propos</string>
+    <string name="settings">Paramètres ...</string>
+    <string name="help">Aide</string>
+    <string name="quit">Quitter</string>
+    <string name="help_content">Appuyez sur un bouton, et le son est joué. C\'est facile :-) !\nLe boutton avec l\'icône rejoue le dernier son.\nVous pouvez utiliser un clavier (touche 1 à 5 et R pour rejouer).\nLe dernier son est aussi joué quand vous faites un mouvement de fouet avec le téléphone.</string>
 </resources>

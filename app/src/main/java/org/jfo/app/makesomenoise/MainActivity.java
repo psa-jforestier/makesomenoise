@@ -58,6 +58,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //
+    public void popupTextWindow(String title, String content)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(title);
+        builder.setMessage(content);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    // Event methods
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
@@ -82,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     public void b1Click(View view) {
         playSound(0, view);
     }
-
     public void b2Click(View view) {
         playSound(1, view);
     }
@@ -100,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
             playSound(lastResId, view);
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -112,15 +123,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-
+            case R.id.mHelp :
+                popupTextWindow(
+                        getResources().getString(R.string.help),
+                        getResources().getString(R.string.help_content));
+                break;
             case R.id.mAbout:
-                mHelpClick(null);
+                mAbout(null);
+                break;
+            case R.id.mQuit:
+                mQuit(null);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void mHelpClick(View view)
+    public void mQuit(View view) {
+        mpLastSound.stop();
+        for (int i = 0 ; i < mp.length; i++)
+        {
+            mp[i].stop();
+        }
+        finish();
+    }
+
+    public void mAbout(View view)
     {
         String versionName = "???";
         try {
@@ -130,18 +157,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create(); //Read Update
-        alertDialog.setTitle(getResources().getString(R.string.about));
-        alertDialog.setMessage(versionName);
-
-        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // here you can add functions
-            }
-        });
-
-        alertDialog.show();  //<-- See This!
+        popupTextWindow(
+                getResources().getString(R.string.about),
+                versionName);
     }
 
     @Override
@@ -192,13 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 //mpLastSound.start();
                 playSound(lastResId, lastView);
             }
-        });/**
-        ((TextView)findViewById(R.id.lIntro)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });**/
+        });
     }
 
 
@@ -280,7 +292,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
         }
 
         interface Callback {
