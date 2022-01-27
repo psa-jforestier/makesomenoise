@@ -1,0 +1,3 @@
+- Add new app menu
+- Better translations
+- Fix a bug where button still activated when using repeat (#1)
