@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (!mp[mpId].isPlaying())
         {
             Log.d("###", "Starting sound number " + mpId);
+            mp[mpId].setVolume(1,1); // Make noise, and make it loud !
             mp[mpId].start();
         }
         lastResId = mpId;

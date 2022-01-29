@@ -86,7 +86,7 @@
             android:contentDescription="@string/replay_the_last_played_sound"
             android:onClick="bClickLastsound"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/appicon_round512" />
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     </LinearLayout>
 
