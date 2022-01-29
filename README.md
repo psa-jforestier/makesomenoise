@@ -43,11 +43,21 @@ TODO
 Sensor code inspired by https://f-droid.org/fr/packages/at.h4x.awhip/
 Sounds are made by [myself](https://freesound.org/people/JayRom01/), or came from [Simon Lacelle](https://freesound.org/people/Simon_Lacelle/) or from Dick De Benedictis. All of them are open and free to use.
 
+
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+alt="Get it on F-Droid"
+height="80">](https://f-droid.org/packages/org.jfo.app.makesomenoise)
+
 Publishing on F-droid : see https://gitlab.com/fdroid/fdroiddata/blob/master/CONTRIBUTING.md
 - My F-Droid fork : https://gitlab.com/psa-jforestier/fdroiddata/
-- Metadata : https://gitlab.com/psa-jforestier/fdroiddata/-/blob/org.jfo.app.makesomenoise/metadata/org.jfo.makesomenoise.yml
+- Metadata : https://gitlab.com/psa-jforestier/fdroiddata/-/blob/org.jfo.app.makesomenoise/metadata/org.jfo.app.makesomenoise.yml
 - change build version in "Open Module Setting (F4) > Modules > Version code and Version name" or open app/build.gradle
   Version code : an integer, should represent the same as Version name (MajorMinor)
   Version name : the number as "Major.Minor"
 - In fastlane/metadata/android/en-US/changelogs/ create a file "MajorMinor.txt" (save as version code) and indicate change
 - Do a Git Tag named "MajorMinor" (as version code) : Github > Tags > Releases : Draft a new release, create a tag named "Major.Minor" in "choose tag", name the release as "Major.Minor"
+
+
+Publishing on Google Play :
+- https://support.google.com/googleplay/android-developer/answer/9859751?hl=fr
+- Have a developer account : https://play.google.com/apps/publish/signup/
