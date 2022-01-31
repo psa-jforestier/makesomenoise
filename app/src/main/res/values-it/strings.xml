@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Make Some Noise</string>
+    <string name="click_on_a_button_to_make_some_noise">Fare clic su un pulsante per fare rumore!</string>
+    <string name="b1">Frusta</string>
+    <string name="b3">Sospende</string>
+    <string name="b4">Pneumatici</string>
+    <string name="b5">Brutto scherzo</string>
+    <string name="replay_the_last_played_sound">Riproduci l\'ultimo suono</string>
+    <string name="about">About</string>
+    <string name="settings">Parametri...</string>
+    <string name="help">Aiuto</string>
+</resources>
