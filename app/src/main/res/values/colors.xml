@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<!-- generated from
+https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=3FD884&secondary.color=33691E-->
+    <color name="primaryColor">#3fd884</color>
+    <color name="primaryLightColor">#7bffb4</color>
+    <color name="primaryDarkColor">#00a556</color>
+    <color name="secondaryColor">#33691e</color>
+    <color name="secondaryLightColor">#629749</color>
+    <color name="secondaryDarkColor">#003d00</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#ffffff</color>
 </resources>
