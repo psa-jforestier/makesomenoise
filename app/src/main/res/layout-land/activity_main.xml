@@ -14,7 +14,6 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
@@ -24,86 +23,86 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/lIntro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:text="@string/click_on_a_button_to_make_some_noise" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0"
-        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/click_on_a_button_to_make_some_noise" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_weight="0"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/b1"
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="b1Click"
-                android:text="@string/b1"
-                android:textAllCaps="false" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/b2"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="b2Click"
-                android:text="@string/b2"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/b1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="b1Click"
+                    android:text="@string/b1"
+                    android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/b3"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="b3Click"
-                android:text="@string/b3"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/b2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="b2Click"
+                    android:text="@string/b2"
+                    android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/b4"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="b4Click"
-                android:text="@string/b4"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/b3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="b3Click"
+                    android:text="@string/b3"
+                    android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/b5"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="b5Click"
-                android:text="@string/b5"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/b4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="b4Click"
+                    android:text="@string/b4"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/b5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="b5Click"
+                    android:text="@string/b5"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/bLastSound"
+                style="@style/Widget.AppCompat.ImageButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:adjustViewBounds="false"
+                android:contentDescription="@string/replay_the_last_played_sound"
+                android:cropToPadding="false"
+                android:onClick="bClickLastsound"
+                android:scaleType="centerInside"
+                app:srcCompat="@mipmap/ic_launcher_foreground" />
 
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/bLastSound"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:adjustViewBounds="false"
-            android:cropToPadding="false"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/replay_the_last_played_sound"
-            android:onClick="bClickLastsound"
-            app:srcCompat="@mipmap/ic_launcher_foreground" />
-
     </LinearLayout>
-
-</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
