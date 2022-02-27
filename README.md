@@ -10,7 +10,7 @@ Simple fun app to play a sound when you touch a button, or when you
 whip your phone.
 This app is 1st attempt to create an Android app, but it is quite fun
 to use. You can virtually whip your find, or make fun of them. You can
-play the Dun Dun Duuun or Suspens sound when someone is down during a
+play the Dun Dun Duuun or Suspense sound when someone is down during a
 murder party :-) . Did you see some The Big Bang Theory episode when
 they whip each other or play a murder party ? The sounds are almose the
 same, and you can use the app like they do it on the show.
@@ -21,7 +21,7 @@ ___
 Sounds played :
 - Whip : to make you work harder (like in The Big Bang Theory S5E19)
 - Dun dun duuuun : the drama sound (also like in The Big Bang Theory S7E18) to increase dramatic suspense of the situation
-- Suspens : a famous sunspens sound 
+- Suspense : a famous sunspens sound 
 - Laugh : a crowd laugh when someone did a good joke
 - Bad Joke : the drums sounds for a not-so-good joke
 
