@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mpLastSound;
     MediaPlayer[] mp;
+    int currentOrientation;
+
 
     public int lastResId;
     public View lastView;
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         mp[mpId].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer paramMP) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
                 view.setAlpha(1F);
                 Log.d("###", "Ending   sound number " + mpId);
             }
@@ -209,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
             public void whipNao() {
                 Log.d("###", "Whip me dirty smartphone");
                 //mpLastSound.start();
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
                 playSound(lastResId, lastView);
             }
         });
