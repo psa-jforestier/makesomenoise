@@ -2,7 +2,7 @@ Faites du bruit !
 Une application rigolote pour simplement jouer un son quand vous appuyez sur un bouton, ou quand vous bougez le téléphone.
 Ceci est ma première app Android, mais c'est marrant à utiliser.
 Vous pouvez virtuellement fouetter vos amis, ou vous moquez d'eux (mais pas trop).
-Vous pouvez jouer le Dun Dun Duuun ou le son du Suspens lors d'une murder party par exemple :-) !
+Vous pouvez jouer le Dun Dun Duuun ou le son du Suspense lors d'une murder party par exemple :-) !
 Vous avez vous les épisodes de The Big Bang Theory quand ils se fouettent les uns les autres ou qu'il font la murder party ? Les sons sont presque les mêmes, et vous pouvez utiliser l'appli comme ils le font dans la série.
 
 Aide :

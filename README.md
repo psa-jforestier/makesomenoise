@@ -21,7 +21,7 @@ ___
 Sounds played :
 - Whip : to make you work harder (like in The Big Bang Theory S5E19)
 - Dun dun duuuun : the drama sound (also like in The Big Bang Theory S7E18) to increase dramatic suspense of the situation
-- Suspense : a famous sunspens sound 
+- Suspense : a famous suspense sound 
 - Laugh : a crowd laugh when someone did a good joke
 - Bad Joke : the drums sounds for a not-so-good joke
 
@@ -57,7 +57,7 @@ Publishing on F-droid : see https://gitlab.com/fdroid/fdroiddata/blob/master/CON
   Version code : an integer, should represent the same as Version name (MajorMinor)
   Version name : the number as "Major.Minor"
 - In fastlane/metadata/android/en-US/changelogs/ create a file "MajorMinor.txt" (save as version code) and indicate change
-- Commit and push all the changes
+- Commit and push all the changes (including build.gradle - remove certificate info if any )
 - Do a Git Tag named "MajorMinor" (as version code) : Github > Tags > Releases : Draft a new release, create a tag named "Major.Minor" in "choose tag", name the release as "Major.Minor"
 
 
