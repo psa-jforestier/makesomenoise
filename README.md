@@ -64,3 +64,4 @@ Publishing on F-droid : see https://gitlab.com/fdroid/fdroiddata/blob/master/CON
 Publishing on Google Play :
 - https://support.google.com/googleplay/android-developer/answer/9859751?hl=fr
 - Have a developer account : https://play.google.com/apps/publish/signup/
+- Generate a Signed Bundle, with variant "gplay", and import it in googleplay. It may be necessay to ad a 0 to the versionCode in build.gradle (but why?)
