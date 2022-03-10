@@ -30,6 +30,13 @@ android {
             versionNameSuffix '.f-droid'
             debuggable false
             minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        gplay {
+            versionNameSuffix '.gplay'
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
