@@ -1,0 +1,2 @@
+- Fix issue #1 : Typo on suspense button
+- Fix issue #2 : lock orientation when playing a sound
