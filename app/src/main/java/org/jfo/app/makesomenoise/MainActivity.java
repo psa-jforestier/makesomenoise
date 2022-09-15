@@ -3,6 +3,7 @@ package org.jfo.app.makesomenoise;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -27,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String MESSAGE_TRAINING = "MESSAGE_TRAINING";
 
     private WhipDetector whipDetector;
 
@@ -137,6 +139,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mQuit:
                 mQuit(null);
                 break;
+            case R.id.mTraining:
+                mTraining(null);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -164,7 +169,15 @@ public class MainActivity extends AppCompatActivity {
                 getResources().getString(R.string.about),
                 versionName);
     }
+    /** Called when the user taps the Send button */
+    public void mTraining(View view) {
+        Intent intent = new Intent(this, TrainingActivity.class);
+        //EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
+        //String message = editText.getText().toString();
+        //intent.putExtra(this.MESSAGE_TRAINING, message);
+        startActivity(intent);
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -206,9 +219,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
          **/
-        whipDetector = new WhipDetector(this, new WhipDetector.Callback() {
+        whipDetector = new WhipDetector(this, 30, new WhipDetector.Callback() {
             @Override
-            public void whipNao() {
+            public void whipNao(int sensorValue) {
                 Log.d("###", "Whip me dirty smartphone");
                 //mpLastSound.start();
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
@@ -233,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     /**
      * Thank you https://codeberg.org/uniqx/AWhip/src/branch/main/app/src/main/java/org/getdisconnected/awhip/HomeActivity.java#L59
      */
@@ -242,9 +256,11 @@ public class MainActivity extends AppCompatActivity {
         private final Callback callback;
         private final SensorManager sensorManager;
         private int[] oldvalues;
+        private int sensitivity = 30;
 
-        public WhipDetector (Context context, final Callback callback) {
+        public WhipDetector (Context context, int sensitivity, final Callback callback) {
             //this.context = context;
+            this.sensitivity = sensitivity;
             this.callback = callback;
 
             this.sensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
@@ -277,21 +293,24 @@ public class MainActivity extends AppCompatActivity {
             x = (int) event.values[0];
             y = (int) event.values[1];
             z = (int) event.values[2];
-            if (oldvalues[0] != x || oldvalues[1] != y || oldvalues[2] != z) {
+            if (sensitivity == 0)
+            {
+                callback.whipNao(x);
+            }
+            else {
+                if (oldvalues[0] != x || oldvalues[1] != y || oldvalues[2] != z) {
+                    // One axis has changed
+                    //Log.d("###", String.format("Move X=%+3d Y=%+3d Z=%+3d", x,y,z));
+                    oldvalues[0] = x;
+                    oldvalues[1] = y;
+                    oldvalues[2] = z;
 
-                // One axis has changed
-                //Log.d("###", String.format("Move X=%+3d Y=%+3d Z=%+3d", x,y,z));
-                oldvalues[0] = x;
-                oldvalues[1] = y;
-                oldvalues[2] = z;
-
-                if (x > 30)
-                {
-                    Log.d("###", "WHIP detected !! " + String.format("Move X=%+3d Y=%+3d Z=%+3d", x,y,z));
-                    callback.whipNao();
+                    if (x >= sensitivity) {
+                        Log.d("###", "WHIP detected !! " + String.format("Move X=%+3d Y=%+3d Z=%+3d", x, y, z));
+                        callback.whipNao(x);
+                    }
                 }
             }
-
         }
 
         @Override
@@ -299,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         interface Callback {
-            void whipNao();
+            void whipNao(int sensorValue);
         }
     }
 }
